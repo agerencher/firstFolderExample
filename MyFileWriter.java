@@ -4,6 +4,12 @@ import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
+
+    private static void printFileSize(String fileName) {
+        File file = new File(fileName);
+        System.out.println(file.length());
+    }
+
     public static void main(String[] args) {
         String data = "Hello, World!";
         String fileName1 = "example1.txt";
@@ -40,10 +46,11 @@ public class MyFileWriter {
         File secretData = new File (directory, "theActualData.dat");
         directory.mkdirs();
         try (BufferedWriter newWriter = new BufferedWriter(new FileWriter(secretData))) {
-            newWriter.write("??");
+            newWriter.write("testdata123");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        printFileSize("secretData");
 
         
         // 3. Using FileOutputStream
