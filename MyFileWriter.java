@@ -27,18 +27,15 @@ public class MyFileWriter {
         // }
 
 
-        File root = new File ("root");
-        File secretPassword = new File (root, ".secretpassword.txt");
+        File secretPassword = new File (".secretpassword.txt");
         try (BufferedWriter newWriter = new BufferedWriter(new FileWriter(secretPassword))) {
             newWriter.write("12545");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
-        File repository = new File ("repo");
-        File directory = new File (repository, ".hiddenFolderTest");
-        File secretData = new File (directory, "theActualData.dat");
-        directory.mkdirs();
+        File directory = new File (".classified");
+        File secretData = new File (directory, "confidential.dat");
         try (BufferedWriter newWriter = new BufferedWriter(new FileWriter(secretData))) {
             newWriter.write("??");
         } catch (IOException e) {
