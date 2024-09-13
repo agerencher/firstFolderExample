@@ -26,7 +26,7 @@ public class MyFileWriter {
             e.printStackTrace();
         }
 
-
+        // yo this dont really work
         File root = new File ("firstFolderExample");
         File secretPassword = new File (root, ".secretpassword.txt");
         try (BufferedWriter newWriter = new BufferedWriter(new FileWriter(secretPassword))) {
@@ -66,5 +66,18 @@ public class MyFileWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        printTotalFileSize("example5.txt", "example4.txt", "example3.txt");
+    }
+
+    private static void printTotalFileSize(String... fileNames) {
+        long totalSize = 0;
+        for (String fileName : fileNames) {
+            File file = new File(fileName);
+            if (file.exists()) {
+                totalSize += file.length();
+            }
+        }
+        System.out.println("Total size of all files: " + totalSize + " bytes");
     }
 }
